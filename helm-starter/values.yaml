@@ -24,12 +24,18 @@ serviceAccount:
   name: ""
 
 config:
-# Main configuration for <CHARTNAME>
+# Main configuration for <CHARTNAME> pod
   env: {}
   # Key value pairs to be mounted on deployment pod as environment variables.
   # Allows gotpl expressions. See example below
-  # MY_AWESOME_ENV_VAR: "my
+  # MY_AWESOME_ENV_VAR: "my awesome var"
   # MY_AWSOME_TPL_ENV_VAR: "{{ .Values.global.myAwesomeEnvVar }}"
+  secretEnv: {}
+  # Sensitive key value pairs to be mounted on deployment pod as environment
+  # variables.
+  # Allows gotpl expressions. See example below
+  # MY_SECRET_ENV_VAR: "supersecret"
+  # MY_SECRET_TPL_ENV_VAR: "{{ .Values.global.superSecret }}"
 podAnnotations: {}
 
 podSecurityContext: {}
