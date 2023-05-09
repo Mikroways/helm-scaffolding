@@ -1,4 +1,4 @@
-# Helm starter scaffold
+# MW starter scaffold
 
 This helm chart scaffold is like the base helm starter chart with some
 improvements, such as:
