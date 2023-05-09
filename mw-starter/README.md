@@ -28,6 +28,6 @@ Assuming you already installed `helm-scafolding` to you helm starters, you just
 need to execute:
 
 ```sh
-helm create <chartname> -p helm-scaffolding/helm-starter
+helm create <chartname> -p helm-scaffolding/mw-starter
 ```
 
