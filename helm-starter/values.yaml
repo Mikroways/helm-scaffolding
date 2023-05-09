@@ -23,6 +23,13 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+config:
+# Main configuration for <CHARTNAME>
+  env: {}
+  # Key value pairs to be mounted on deployment pod as environment variables.
+  # Allows gotpl expressions. See example below
+  # MY_AWESOME_ENV_VAR: "my
+  # MY_AWSOME_TPL_ENV_VAR: "{{ .Values.global.myAwesomeEnvVar }}"
 podAnnotations: {}
 
 podSecurityContext: {}
