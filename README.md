@@ -1,1 +1,41 @@
-Helm starters charts
+The main goal to this repository is to have a library of helm scaffoldings to use
+with `helm create` in order to:
+
+- Automatize chart creation with some of the
+  [helm best practices](https://helm.sh/docs/chart_best_practices/) and 
+  [helm tips and tricks](https://helm.sh/docs/howto/charts_tips_and_tricks/)
+- Act a baseline to chart development flow.
+
+## How to use it
+
+In order to use this scaffoldings you just need to clone this repository and
+pass along the path to the scaffold to the `helm create` command. I.E:
+
+```sh
+# Clone the repo
+git clone git@github.com:Mikroways/helm-scaffolding.git /tmp/helm-scaffolding
+# Create the chart
+helm create testing-starter -p /tmp/helm-scaffolding/mw-starter
+```
+
+Althougth this method is good for just testing purposes maybe you will want to
+integrating with your existing installation.
+
+### Integrating this scaffold with Helm
+
+First of all it worth mentioning that Helm looks for a particular directory when
+using scaffolds. That is `$HELM_HOME/starters`; usually set as `~/.helm`.
+
+> **TRICK:** If you cannot find that directory or helm just ignores it; you can
+> run `helm create not-important -p unexistent` ;)
+
+Having that in mind, integration with your helm installation is fair simple.
+Just clone this repository in the helm search path and have fun.
+
+```sh
+# Assuming helm's search path is ~/.helm
+git clone git@github.com:Mikroways/helm-scaffolding.git ~/.helm/starters/helm-scaffolding
+# Start using it
+helm create testing-scaffold -p helm-scaffolding/<scaffold_you_want>
+```
+
