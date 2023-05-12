@@ -27,7 +27,7 @@ First of all it worth mentioning that Helm looks for a particular directory when
 using scaffolds. That is `$HELM_HOME/starters`; usually set as 
 `~/.helm/starters`.
 
-> **TRICK:** If you cannot find that directory or helm just ignores it; you can
+> If you cannot find that directory or helm just ignores it; you can
 > run `helm create not-important -p unexistent` and check out the path in the
 > error. ;)
 
