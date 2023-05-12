@@ -23,19 +23,20 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-config:
 # Main configuration for <CHARTNAME> pod
-  env: {}
+config:
   # Key value pairs to be mounted on deployment pod as environment variables.
   # Allows gotpl expressions. See example below
-  # MY_AWESOME_ENV_VAR: "my awesome var"
-  # MY_AWSOME_TPL_ENV_VAR: "{{ .Values.global.myAwesomeEnvVar }}"
-  secretEnv: {}
+  env: {}
+    # MY_AWESOME_ENV_VAR: "my awesome var"
+    # MY_AWSOME_TPL_ENV_VAR: "{{ .Values.global.myAwesomeEnvVar }}"
+
   # Sensitive key value pairs to be mounted on deployment pod as environment
   # variables.
   # Allows gotpl expressions. See example below
-  # MY_SECRET_ENV_VAR: "supersecret"
-  # MY_SECRET_TPL_ENV_VAR: "{{ .Values.global.superSecret }}"
+  secretEnv: {}
+    # MY_SECRET_ENV_VAR: "supersecret"
+    # MY_SECRET_TPL_ENV_VAR: "{{ .Values.global.superSecret }}"
 podAnnotations: {}
 
 podSecurityContext: {}
@@ -59,8 +60,8 @@ ingress:
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
+  # Allows gotpl expressions. See example below
   hosts: []
-      # Allows gotpl expressions. See example below
       #    - host: "{{ .Values.global.ingress.host }}"
       #      paths:
       #        - path: "{{ default / .Values.global.ingress.path }}"
@@ -70,26 +71,28 @@ ingress:
       #      paths:
       #        - path: /
       #          pathType: ImplementationSpecific
-  tls: []
   # Allows gotpl expressions. See example below.
+  tls: []
   #  - secretName: "{{ .Values.global.tls.secretName }}"
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
   #      - "{{ .Values.global.tls.domain }}"
 
+# https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#before-you-begin
 livenessProbe: {}
-# https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#before-you-begin
 # httpGet:
 #   path: /
 #   port: http
+
+# https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#before-you-begin
 readinessProbe: {}
-# https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#before-you-begin
 # httpGet:
 #   path: /
 #   port: http
-startupProbe: {}
+
 # https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#before-you-begin
+startupProbe: {}
 # httpGet:
 #   path: /
 #   port: http
