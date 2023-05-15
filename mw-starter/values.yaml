@@ -10,7 +10,9 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+# Allows gotpl expressions
 imagePullSecrets: []
+  # - name: "{{ .Values.global.regcred }}"
 nameOverride: ""
 fullnameOverride: ""
 
